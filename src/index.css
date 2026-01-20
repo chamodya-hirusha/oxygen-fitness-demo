@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@fontsource/oswald/400.css";
+@import "@fontsource/oswald/500.css";
+@import "@fontsource/oswald/600.css";
+@import "@fontsource/oswald/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+/* Oxygen Fitness Center Design System - Dark Theme with Orange Accents */
+
+@layer base {
+  :root {
+    /* Core Dark Theme */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    /* Card surfaces - slightly elevated */
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+
+    /* Popover */
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Vibrant Orange */
+    --primary: 25 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Dark Gray */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Muted surfaces */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Accent - Orange tint */
+    --accent: 25 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & inputs */
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 25 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Oxygen Fitness tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(25 100% 50%) 0%, hsl(35 100% 55%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 7%) 100%);
+    --gradient-hero-overlay: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%);
+    
+    --shadow-glow: 0 0 40px hsla(25, 100%, 50%, 0.3);
+    --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    --shadow-elevated: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+
+    /* Typography */
+    --font-heading: "Oswald", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    /* Sidebar - unused but required */
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 25 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 25 100% 50%;
+  }
+
+  .dark {
+    /* Keep same as root - always dark theme */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 25 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 25 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 25 100% 50%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 25 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 25 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Section styling */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4;
+    font-family: var(--font-heading);
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-center max-w-2xl mx-auto mb-12;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  /* Card styling */
+  .card-gradient {
+    background: var(--gradient-card);
+    @apply border border-border rounded-2xl;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-xl;
+    @apply hover:brightness-110 transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl;
+  }
+
+  .btn-outline {
+    @apply border-2 border-foreground/30 text-foreground font-semibold px-8 py-4 rounded-xl;
+    @apply hover:border-primary hover:text-primary transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsla(25, 100%, 50%, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsla(25, 100%, 50%, 0.5);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
