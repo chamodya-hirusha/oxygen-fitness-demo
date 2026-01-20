@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const memberships = [
   {
     name: "Monthly",
-    price: 49,
+    price: "4,500",
     period: "month",
     features: [
       "Full Gym Access",
@@ -18,9 +18,9 @@ const memberships = [
   },
   {
     name: "3-Month",
-    price: 129,
+    price: "12,000",
     period: "3 months",
-    originalPrice: 147,
+    originalPrice: "13,500",
     features: [
       "Full Gym Access",
       "Locker Room Access",
@@ -33,9 +33,9 @@ const memberships = [
   },
   {
     name: "Annual",
-    price: 399,
+    price: "45,000",
     period: "year",
-    originalPrice: 588,
+    originalPrice: "54,000",
     features: [
       "Unlimited Gym Access",
       "Premium Locker Room",
@@ -78,11 +78,10 @@ const MembershipSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className={`relative rounded-2xl overflow-hidden ${
-                membership.popular
-                  ? "bg-gradient-to-b from-primary/10 to-card border-2 border-primary scale-105 z-10"
-                  : "bg-secondary/30 border border-border"
-              }`}
+              className={`relative rounded-2xl overflow-hidden ${membership.popular
+                ? "bg-gradient-to-b from-primary/10 to-card border-2 border-primary scale-105 z-10"
+                : "bg-secondary/30 border border-border"
+                }`}
             >
               {membership.popular && (
                 <div className="absolute top-4 right-4">
@@ -100,16 +99,16 @@ const MembershipSection = () => {
 
                 <div className="flex items-baseline gap-2 mb-6">
                   <span className="font-heading text-4xl md:text-5xl font-bold">
-                    ${membership.price}
+                    Rs. {membership.price}
                   </span>
                   <span className="text-muted-foreground">/{membership.period}</span>
                 </div>
 
                 {membership.originalPrice && (
                   <p className="text-sm text-muted-foreground mb-4">
-                    <span className="line-through">${membership.originalPrice}</span>
-                    <span className="text-primary ml-2">
-                      Save ${membership.originalPrice - membership.price}
+                    <span className="line-through text-xs md:text-sm">Rs. {membership.originalPrice}</span>
+                    <span className="text-primary ml-2 font-bold text-xs md:text-sm whitespace-nowrap">
+                      Save Rs. {(parseInt(membership.originalPrice.replace(",", "")) - parseInt(membership.price.replace(",", ""))).toLocaleString()}
                     </span>
                   </p>
                 )}
@@ -117,12 +116,10 @@ const MembershipSection = () => {
                 <div className="space-y-3 mb-8">
                   {membership.features.map((feature) => (
                     <div key={feature} className="flex items-center gap-3">
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
-                        membership.popular ? "bg-primary" : "bg-primary/20"
-                      }`}>
-                        <Check className={`w-3 h-3 ${
-                          membership.popular ? "text-primary-foreground" : "text-primary"
-                        }`} />
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center ${membership.popular ? "bg-primary" : "bg-primary/20"
+                        }`}>
+                        <Check className={`w-3 h-3 ${membership.popular ? "text-primary-foreground" : "text-primary"
+                          }`} />
                       </div>
                       <span className="text-sm text-muted-foreground">{feature}</span>
                     </div>

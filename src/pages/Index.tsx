@@ -12,10 +12,14 @@ import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import GallerySection from "@/components/GallerySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import BackgroundAnimation from "@/components/BackgroundAnimation";
+import BackToTop from "@/components/BackToTop";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="relative min-h-screen bg-background overflow-hidden">
+      <BackgroundAnimation />
+      <BackToTop />
       <Header />
       <HeroSection />
       <AboutSection />
