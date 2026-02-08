@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground/60">
-          <p>© {new Date().getFullYear()} Oxygen Fitness Center. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Braintisa. All rights reserved.</p>
         </div>
       </div>
     </footer>
